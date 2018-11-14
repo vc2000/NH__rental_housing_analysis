@@ -17,13 +17,18 @@ df["City"]=df["City"].str.replace(',nh','').replace('nh','')
 df["Price"] = df["Price"].str.replace('$','')
 
 df["Title"] = df["Title"].str.lower()
-df["Title"] = df["Title"].str.replace('w/','with ').replace('/wk',' per week')
+df["Title"] = df["Title"].str.replace('*','')
+df["Title"] = df["Title"].str.replace('?','')
+df["Title"] = df["Title"].str.replace('!','')
+df["Title"] = df["Title"].str.replace('@','')
+df["Title"] = df["Title"].str.replace('&','')
+df["Title"] = df["Title"].str.replace('~','')
 
 df["bedroom"]= df["bedroom"].str.replace('br','')
 
 df["ft"]= df["ft"].str.replace('ft2','')
 
-
+df.to_csv("halfclean.csv", encoding='utf-8', index=False)
 
 print(df.head(100))
 
