@@ -1,30 +1,26 @@
 import pandas as pd
 import numpy as np
-
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
 
 
 df = pd.read_csv("halfclean(5).csv", encoding="ISO-8859-1")
 
-"""df["City"]=df["City"].apply(str)
-df["City"]=df["City"].str.lower()
-df["City"]=df["City"].str.replace(',nh','').replace('nh','')
+ad= df.Title[0]
 
-df["Price"] = df["Price"].str.replace('$','')
+wordcloud = WordCloud().generate(ad)
 
-df["Title"] = df["Title"].str.lower()
-df["Title"] = df["Title"].str.replace('*','')
-df["Title"] = df["Title"].str.replace('?','')
-df["Title"] = df["Title"].str.replace('!','')
-df["Title"] = df["Title"].str.replace('@','')
-df["Title"] = df["Title"].str.replace('&','')
-df["Title"] = df["Title"].str.replace('~','')
+plt.imshow(wordcloud, interpolation="bilinear")
+plt.axis("off")
+plt.show()
+wordcloud.to_file("img/wc_ad_black.png")
 
-df["bedroom"]= df["bedroom"].str.replace('br','')
-
-df["ft"]= df["ft"].str.replace('ft2','')
-
-df.to_csv("halfclean.csv", encoding='utf-8', index=False)"""
-
-print(df.head(100))
-
+wordcloud = WordCloud(
+    max_font_size=50, max_words=100, background_color="white"
+).generate(ad)
+plt.figure()
+plt.imshow(wordcloud, interpolation="bilinear")
+plt.axis("off")
+plt.show()
+wordcloud.to_file("img/wc_ad_white.png")
