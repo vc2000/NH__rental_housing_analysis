@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
 
-
 df = pd.read_csv("halfclean(5).csv", encoding="ISO-8859-1")
 
 ad= df.Title.str.cat(sep=",")
