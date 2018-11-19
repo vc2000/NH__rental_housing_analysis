@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 big_lis = []
 
-i=0
+i = 0
 while i < 3000:
     try:
         if i == 0:
@@ -14,8 +14,6 @@ while i < 3000:
 
         r = requests.get(url)
         soup = BeautifulSoup(r.content, "html.parser")
-
-        
 
         all = soup.find_all("li", {"class": "result-row"})
 

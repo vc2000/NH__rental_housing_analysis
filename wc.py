@@ -6,10 +6,10 @@ from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
 df = pd.read_csv("halfclean(5).csv", encoding="ISO-8859-1")
 
-ad= df.Title.str.cat(sep=",")
+ad = df.Title.str.cat(sep=",")
 
 
-#print(df["Title"].head(10))
+# print(df["Title"].head(10))
 
 wordcloud = WordCloud().generate(ad)
 
